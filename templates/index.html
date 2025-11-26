@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Corn Seed Analyzer</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white">
+
+    <section class="relative py-20 px-4 sm:px-6 lg:px-8 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=2070');">
+        <div class="bg-black bg-opacity-60 p-10 rounded-xl max-w-2xl mx-auto text-center shadow-lg">
+            <h1 class="text-4xl font-bold">Corn Seed Quality Analysis</h1>
+            <p class="mt-4 text-lg">Upload an image of corn seed and let our AI model predict the grade.</p>
+
+            <form method="POST" enctype="multipart/form-data" class="mt-8 space-y-4">
+                <input type="file" name="image" accept="image/*" required class="block w-full text-sm text-white bg-gray-800 rounded-md border border-gray-600 cursor-pointer focus:outline-none"/>
+                <button type="submit" class="bg-white text-black px-6 py-2 rounded-md hover:bg-gray-200">Predict</button>
+            </form>
+
+           {% if prediction %}
+    <div class="mt-6 text-xl font-semibold text-green-400">
+        Predicted Class: {{ prediction }}
+    </div>
+    <div class="mt-2 text-sm text-gray-300">
+        AI Analysis Accuracy: <span class="font-semibold text-white">96%</span>
+    </div>
+
+                {% if image_path %}
+                    <div class="mt-4">
+                        <img src="{{ image_path }}" alt="Uploaded Image" class="mx-auto max-w-xs rounded-md shadow-lg border border-gray-700">
+                    </div>
+                {% endif %}
+            {% endif %}
+        </div>
+    </section>
+
+   <footer class="bg-gray-800 py-10 mt-10 text-white">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-6">MADE BY</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+                <h3 class="text-lg font-bold uppercase">SHREYAS S</h3>
+                <p class="text-sm text-gray-300 mt-1">USN: 4MH22EC103</p>
+            </div>
+            <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+                <h3 class="text-lg font-bold uppercase">SUDARSHAN BS</h3>
+                <p class="text-sm text-gray-300 mt-1">USN: 4MH22EC107</p>
+            </div>
+            <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+                <h3 class="text-lg font-bold uppercase">M KARTHIK</h3>
+                <p class="text-sm text-gray-300 mt-1">USN: 4MH23EC405</p>
+            </div>
+            <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+                <h3 class="text-lg font-bold uppercase">SHAIDH PASHA</h3>
+                <p class="text-sm text-gray-300 mt-1">USN: 4MH23EC409</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
